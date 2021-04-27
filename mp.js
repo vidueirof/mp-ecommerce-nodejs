@@ -41,7 +41,7 @@ module.exports = {
                     street_number: parseInt(process.env.PAYER_ADDRESS_STREET_NUMBER)
                 }
             },
-            auto_return: "all",
+            auto_return: "approved",
             back_urls: {
                 success: host + "/success",
                 pending: host + "/pending",
@@ -50,6 +50,7 @@ module.exports = {
             notification_url: host + "/notifications"
         };
 
+        console.log(JSON.stringify(preference));
         var response = await mercadopago.preferences.create(preference)
         return response.body.init_point
     }
