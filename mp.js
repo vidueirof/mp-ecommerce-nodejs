@@ -13,6 +13,7 @@ module.exports = {
         let preference = {
             items: [
                 {
+                    id: 1234,
                     title: item.title,
                     description: "Dispositivo móvil de Tienda e-commerce",
                     picture_url: host + '/' + item.img,
@@ -46,7 +47,7 @@ module.exports = {
                 pending: host + "/pending",
                 failure: host + "/failure"
             },
-            notification_url: host + "/notifications"
+            notification_url: host + "/notifications?source_news=webhooks"
         };
 
         console.log(JSON.stringify(preference));
