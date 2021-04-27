@@ -1,10 +1,15 @@
 // SDK de Mercado Pago
 const mercadopago = require('mercadopago');
-// Agrega credenciales
-mercadopago.configure({
+
+const MPConfig = {
     access_token: process.env.MP_ACCESS_TOKEN,
     integrator_id: process.env.MP_INTEGRATOR_ID
-});
+}
+
+console.log(JSON.stringify(MPConfig));
+
+// Agrega credenciales
+mercadopago.configure(MPConfig);
 
 module.exports = {
 
@@ -24,7 +29,7 @@ module.exports = {
             external_reference: process.env.EMAIL,
             payment_methods: {
                 excluded_payment_methods: [{id:'amex'}],
-                excluded_payment_types: [{payment_type_id:'atm'}],
+                excluded_payment_types: [{id:'atm'}],
                 installments: 6
             },
             payer: {
